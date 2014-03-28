@@ -1,0 +1,13 @@
+name = Svendborg - views
+description = include ustream video view of City Council meeting, inactive user view
+core = 7.x
+package = Svendborg
+dependencies[] = ctools
+dependencies[] = file_entity
+dependencies[] = metatag
+dependencies[] = svendborg_ustream_video
+dependencies[] = views
+dependencies[] = views_bulk_operations
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = svendborg_inactive_users
