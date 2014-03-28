@@ -5,7 +5,6 @@ package = Svendborg
 dependencies[] = ctools
 dependencies[] = file_entity
 dependencies[] = metatag
-dependencies[] = svendborg_ustream_video
 dependencies[] = views
 dependencies[] = views_bulk_operations
 features[ctools][] = views:views_default:3.0
