@@ -319,11 +319,6 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['group'] = 2;
-  /* Filterkriterie: Indhold: Forfremmet til forside */
-  $handler->display->display_options['filters']['promote']['id'] = 'promote';
-  $handler->display->display_options['filters']['promote']['table'] = 'node';
-  $handler->display->display_options['filters']['promote']['field'] = 'promote';
-  $handler->display->display_options['filters']['promote']['value'] = '1';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
