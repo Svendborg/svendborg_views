@@ -11,6 +11,278 @@ function svendborg_views_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'culture_calendar';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'culture calendar';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Kulturkalender';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Antal elementer';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Forskydning';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« første';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ forrige';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Felt: Indhold: Kulturkalender Dato */
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['id'] = 'field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['table'] = 'field_data_field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['field'] = 'field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['settings'] = array(
+    'format_type' => 'tab_date',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Felt: Indhold: Kulturkalender Link */
+  $handler->display->display_options['fields']['field_kulturkalender_link']['id'] = 'field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['table'] = 'field_data_field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['field'] = 'field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['label'] = '';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kulturkalender_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kulturkalender_link']['empty'] = 'http://www.svendborgkultur.dk/';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['type'] = 'link_title_plain';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href="[field_kulturkalender_link]">[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Felt: Indhold: Indhold */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '50';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="col-md-12 col-sm-12 col-xs-12 quicktabs-nyheder-row">
+   <div class="col-md-12 quicktabs-row-border">
+     <div>[field_kulturkalender_dato]</div>
+     <h4>[title]</h4>
+      [body]
+  </div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'kulturkalender' => 'kulturkalender',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Kulturkalender Dato */
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['id'] = 'field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['table'] = 'field_data_field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['field'] = 'field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['label'] = '';
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato']['settings'] = array(
+    'format_type' => 'day',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Felt: Indhold: Kulturkalender Dato */
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['id'] = 'field_kulturkalender_dato_1';
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['table'] = 'field_data_field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['field'] = 'field_kulturkalender_dato';
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['label'] = '';
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kulturkalender_dato_1']['settings'] = array(
+    'format_type' => 'month',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Felt: Indhold: Kulturkalender Link */
+  $handler->display->display_options['fields']['field_kulturkalender_link']['id'] = 'field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['table'] = 'field_data_field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['field'] = 'field_kulturkalender_link';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['label'] = '';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kulturkalender_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kulturkalender_link']['empty'] = 'http://www.svendborgkultur.dk/';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_kulturkalender_link']['type'] = 'link_title_plain';
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<a href="[field_kulturkalender_link]">[title]</a>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Felt: Indhold: Indhold */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '800';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="front-s-news-item front-s-news-item-">
+<div class="front-s-news-item-text clearfix">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                     <div class="news-text-date">
+                       <span class="news-date-day">[field_kulturkalender_dato].</span>
+                       <span class="news-date-month">[field_kulturkalender_dato_1]</span>
+                     </div>
+                 </div>
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                      <div>[title]</div>
+                      <div>
+                          <p>[body]</p>
+                      </div>
+                </div>
+            </div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['path'] = 'culture-calendar';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'culture calendar';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'Alle kulturkalender';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '2';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Sidefod: Global: Tekstområde */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<button class="btn btn-primary"><a href="http://www.svendborgkultur.dk/">
+    Se kulturkalender  </a></button>';
+  $handler->display->display_options['footer']['area']['format'] = 'plain_text';
+  $translatables['culture_calendar'] = array(
+    t('Master'),
+    t('Kulturkalender'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Antal elementer'),
+    t('- Alle -'),
+    t('Forskydning'),
+    t('« første'),
+    t('‹ forrige'),
+    t('næste ›'),
+    t('sidste »'),
+    t('http://www.svendborgkultur.dk/'),
+    t('<a href="[field_kulturkalender_link]">[title]</a>'),
+    t('<div class="col-md-12 col-sm-12 col-xs-12 quicktabs-nyheder-row">
+   <div class="col-md-12 quicktabs-row-border">
+     <div>[field_kulturkalender_dato]</div>
+     <h4>[title]</h4>
+      [body]
+  </div>
+</div>'),
+    t('Page'),
+    t('<div class="front-s-news-item front-s-news-item-">
+<div class="front-s-news-item-text clearfix">
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                     <div class="news-text-date">
+                       <span class="news-date-day">[field_kulturkalender_dato].</span>
+                       <span class="news-date-month">[field_kulturkalender_dato_1]</span>
+                     </div>
+                 </div>
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                      <div>[title]</div>
+                      <div>
+                          <p>[body]</p>
+                      </div>
+                </div>
+            </div>
+</div>'),
+    t('Block'),
+    t('culture calendar'),
+    t('Alle kulturkalender'),
+    t('<button class="btn btn-primary"><a href="http://www.svendborgkultur.dk/">
+    Se kulturkalender  </a></button>'),
+  );
+  $export['culture_calendar'] = $view;
+
+  $view = new view();
   $view->name = 'news_filter';
   $view->description = '';
   $view->tag = 'default';
@@ -22,7 +294,7 @@ function svendborg_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Filtere i kategorier';
+  $handler->display->display_options['title'] = 'Filtre i kategorier';
   $handler->display->display_options['css_class'] = 'col-md-12 col-sm-12 col-xs-12';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
@@ -63,7 +335,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['max_length'] = '10';
+  $handler->display->display_options['fields']['name']['alter']['max_length'] = '20';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['trim'] = TRUE;
@@ -84,17 +356,48 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'os2web_taxonomies_tax_portal_cat' => 'os2web_taxonomies_tax_portal_cat',
+    'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Ord i ordforråd: Term ID */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['label'] = '';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['tid']['separator'] = '';
+  /* Felt: Ord i ordforråd: Navn */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['max_length'] = '20';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_type'] = '0';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  /* Felt: Global: Tilpasset tekst */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="col-md-6 col-sm-12 col-xs-12">
+<div class="btn btn-blacknblue filter-link col-md-12 col-sm-12 col-xs-12" id="filter-[tid]" data-filter="[tid]">[name]</div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $translatables['news_filter'] = array(
     t('Master'),
-    t('Filtere i kategorier'),
+    t('Filtre i kategorier'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
@@ -534,6 +837,7 @@ function svendborg_views_views_default_views() {
 <div>[created]</div>
 <h4>[title]</h4>
 </div>
+<div class="clearfix">
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -563,6 +867,10 @@ function svendborg_views_views_default_views() {
     ),
   );
   $handler->display->display_options['block_description'] = 'tab';
+
+  /* Display: Side */
+  $handler = $view->new_display('page', 'Side', 'page_1');
+  $handler->display->display_options['path'] = 'nyheder/%';
   $translatables['svendborg_news_view'] = array(
     t('Master'),
     t('mere'),
@@ -591,10 +899,12 @@ function svendborg_views_views_default_views() {
 <div>[created]</div>
 <h4>[title]</h4>
 </div>
+<div class="clearfix">
 </div>
 </div>'),
     t('Alle [field_os2web_news_page_type] '),
     t('tab'),
+    t('Side'),
   );
   $export['svendborg_news_view'] = $view;
 

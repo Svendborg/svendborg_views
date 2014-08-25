@@ -28,19 +28,27 @@ function svendborg_views_quicktabs_default_quicktabs() {
       'type' => 'view',
     ),
     1 => array(
-      'vid' => 'svendborg_news_view',
-      'display' => 'block_1',
-      'args' => 'Høring',
-      'title' => 'Høring',
+      'vid' => 'culture_calendar',
+      'display' => 'block',
+      'args' => 'Kultur-kalender',
+      'title' => 'Kultur-kalender',
       'weight' => '-99',
       'type' => 'view',
     ),
     2 => array(
       'vid' => 'svendborg_news_view',
       'display' => 'block_1',
+      'args' => 'Høring',
+      'title' => 'Høring',
+      'weight' => '-98',
+      'type' => 'view',
+    ),
+    3 => array(
+      'vid' => 'svendborg_news_view',
+      'display' => 'block_1',
       'args' => 'Byrådsmøde',
       'title' => 'Byrådsmøde',
-      'weight' => '-98',
+      'weight' => '-97',
       'type' => 'view',
     ),
   );
@@ -52,6 +60,7 @@ function svendborg_views_quicktabs_default_quicktabs() {
   // Included for use with string extractors like potx.
   t('Byrådsmøde');
   t('Høring');
+  t('Kultur-kalender');
   t('Nyhed quicktabs');
   t('Udbud');
 
